@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GrMail } from "react-icons/gr";
 
 const Nav = () => {
   return (
@@ -28,11 +29,12 @@ const Nav = () => {
             </Link>
           </div>
           <div className="flex items-center justify-center w-[74px] h-full border-l-[2px] border-l-black/10 p-[17px]">
-            <button className="cursor-pointer flex flex-col gap-[7px] w-full h-auto">
+            <button className="lg:hidden cursor-pointer flex flex-col gap-[7px] w-full h-auto">
               <div className="w-full h-[3px] bg-black" />
               <div className="w-full h-[3px] bg-black" />
               <div className="w-full h-[3px] bg-black" />
             </button>
+            <Link href="mailto:info@codeumgames.com" target="_blank" className="md:flex hidden text-4xl"><GrMail /></Link>
           </div>
         </div>
       </nav>

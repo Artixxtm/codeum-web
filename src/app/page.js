@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import About from "@/sections/About";
 import Header from "@/sections/Header";
 import Projects from "@/sections/Projects";
 import Sky from "@/sections/Sky";
@@ -13,6 +14,8 @@ export default function Home() {
       <Sky />
 
       <Projects />
+
+      <About />
 
       </div>
     </>

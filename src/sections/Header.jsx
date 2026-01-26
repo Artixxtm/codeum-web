@@ -35,18 +35,18 @@ const Header = () => {
       <div className="h-full w-full lg:justify-between lg:items-center md:px-15 px-3.5 flex lg:flex-row flex-col lg:gap-0 gap-4">
         
         <div className="lg:hidden flex flex-col w-full h-auto relative font-main uppercase text-7xl mt-5">
-          <h1 className="">Codeum</h1>
+          <h1>Codeum</h1>
           <h1 className="inline-flex items-start w-fit ml-auto">
             Games<span className="text-5xl relative top-1">™</span>
           </h1>
         </div>
 
         <p className="font-secondary tracking-[0.01em] 2xl:text-2xl md:text-xl text-base opacity-85 relative md:leading-normal leading-[125%] lg:top-[20px] md:mt-0 mt-2">
-          The best creative game
+          The most creative game
           <br />
           studio, you have ever seen!
           <br />
-          Dimond minds there.
+          Diamond minds at work.
         </p>
 
         <div className="w-auto h-auto flex lg:gap-10 md:gap-2 gap-1.5 relative lg:top-[20px]">
