@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import StretchedText from "../components/StretchedText";
 import HeadText from "../components/HeadText";
+import Link from "next/link";
 
 const Header = () => {
   const svgRef = useRef(null);
@@ -50,9 +51,9 @@ const Header = () => {
         </p>
 
         <div className="w-auto h-auto flex lg:gap-10 md:gap-2 gap-1.5 relative lg:top-[20px]">
-          <button className="bg-white 2xl:w-[180px] md:w-[150px] w-[80px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[-19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
+          <Link href={'mailto:info@codeumgames.com'} target="_blank" className="bg-white 2xl:w-[180px] md:w-[150px] w-[80px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary flex justify-center items-center font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[-19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
             Say Hi!
-          </button>
+          </Link>
           <button className="bg-white 2xl:w-[180px] md:w-[150px] w-[90px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
             Projects
           </button>

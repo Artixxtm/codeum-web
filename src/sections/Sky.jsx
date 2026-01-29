@@ -2,33 +2,47 @@
 
 import gsap from "gsap";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Sky = () => {
   useEffect(() => {
-    const skyImage = document.getElementById("skyImage")
-    if (skyImage) {
+    const skyImage = document.getElementById("skyImage");
+    if (!skyImage) return;
+
+    const setupAnimation = () => {
+      const distance = skyImage.offsetHeight - window.innerHeight;
+
       const animation = gsap.to(skyImage, {
-        y: `-${skyImage.offsetHeight - window.innerHeight}`,
+        y: -distance,
         scrollTrigger: {
           start: "top top",
-          end: `+=${skyImage.offsetHeight - window.innerHeight / 2}`,
+          end: `+=${distance + window.innerHeight / 6}`,
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      return () => {
-        animation.kill();
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
+      ScrollTrigger.refresh();
+
+      return animation;
+    };
+
+    if (skyImage.complete) {
+      const animation = setupAnimation();
+      return () => animation?.kill();
+    } else {
+      skyImage.onload = () => setupAnimation();
     }
   }, []);
 
   return (
-    <div id="skyContainer" className="w-full md:h-[80vh] h-[50vh] mt-[calc(75px)] relative pointer-events-none">
+    <div
+      id="skyContainer"
+      className="w-full md:h-[80vh] h-[50vh] mt-[calc(75px)] relative pointer-events-none"
+    >
       <div className="md:w-[150vw] w-[360vw] h-full absolute left-0 -translate-x-[20%] top-[calc(-180px*2)] z-[15] opacity-90">
         <Image
           src={"/clouds.png"}

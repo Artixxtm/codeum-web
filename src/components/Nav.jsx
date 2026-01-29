@@ -44,7 +44,7 @@ const Nav = () => {
 
       <nav
         id="bottom-nav"
-        className="w-full h-[75px] border-t-[2px] border-t-black/10 flex justify-between items-center fixed bottom-0 left-0 z-[10]"
+        className="w-full h-[75px] border-t-[2px] border-t-black/10 flex backdrop-blur-lg justify-between items-center fixed bottom-0 left-0 z-[10]"
       >
         <div className="flex items-center justify-center w-[74px] h-full border-r-[2px] border-r-black/10 p-3.5"></div>
 

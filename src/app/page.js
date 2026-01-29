@@ -7,16 +7,14 @@ import Sky from "@/sections/Sky";
 export default function Home() {
   return (
     <>
-      <Nav />
       <div className="w-full h-full overflow-hidden relative">
-      <Header />
-      
-      <Sky />
+        <Header />
 
-      <Projects />
+        <Sky />
 
-      <About />
+        <Projects />
 
+        <About />
       </div>
     </>
   );

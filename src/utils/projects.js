@@ -1,35 +1,19 @@
 const projects = [
   {
-    title: "ProjEx Ample",
+    title: "Samurai's Odyssey",
     image: "/projects/samurais.jpg",
     description:
-      "Some doubled long description for no reason of project that we have build in past and thats maybe not enough for now",
-    link: "https://samuraisodyssey.com",
+      "Japan, 17th century. A samurai is not merely a warrior; it is a path of blazing honor, duty, and death. You are a samurai who has faced all of this. Go forth to meet your destiny.",
+    link: "https://store.steampowered.com/app/3624120/Samurais_Odyssey/",
     id: "1",
   },
   {
-    title: "Refreshinger 2",
-    image: "/projects/exx.jpg",
+    title: "AdManager Pro",
+    image: "/projects/ad-manager.jpg",
     description:
-      "Some long description of project that we build and thats not enough",
-    link: "https://samuraisodyssey.com",
+      "Transform your Unity project with seamless ad integration! This asset includes support for banner ads, interstitial ads, reward ads, and native ads.",
+    link: "https://assetstore.unity.com/packages/tools/integration/admanager-pro-easy-setup-292715",
     id: "2",
-  },
-  {
-    title: "Even Better G",
-    image: "/projects/exx3.webp",
-    description:
-      "Some doubled long description for no reason of project that we have build in past and thats maybe not enough",
-    link: "https://samuraisodyssey.com",
-    id: "3",
-  },
-  {
-    title: "ProjEx Ample",
-    image: "/projects/samurais.jpg",
-    description:
-      "Some doubled long description for no reason of project that we have build in past and thats maybe not enough for now",
-    link: "https://samuraisodyssey.com",
-    id: "1",
   },
 ];
 
