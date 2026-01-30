@@ -1,8 +1,12 @@
-import Nav from "@/components/Nav";
+"use client";
+
 import About from "@/sections/About";
+import Contact from "@/sections/Contact";
 import Header from "@/sections/Header";
-import Projects from "@/sections/Projects";
 import Sky from "@/sections/Sky";
+import dynamic from "next/dynamic";
+
+const Projects = dynamic(() => import("@/sections/Projects"), { ssr: false });
 
 export default function Home() {
   return (
@@ -15,6 +19,8 @@ export default function Home() {
         <Projects />
 
         <About />
+
+        <Contact />
       </div>
     </>
   );

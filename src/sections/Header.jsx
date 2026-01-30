@@ -1,35 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import StretchedText from "../components/StretchedText";
 import HeadText from "../components/HeadText";
 import Link from "next/link";
+import { useLenis } from "lenis/react";
 
 const Header = () => {
-  const svgRef = useRef(null);
-  const textRef = useRef(null);
-  const [viewBox, setViewBox] = useState("-0.29 -3.24 283.52 20.37");
-
-  useEffect(() => {
-    const updateViewBox = () => {
-      if (textRef.current) {
-        const bbox = textRef.current.getBBox();
-        setViewBox(`${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
-      }
-    };
-
-    const timeout = setTimeout(() => {
-      updateViewBox();
-      if (svgRef.current) {
-        const observer = new ResizeObserver(updateViewBox);
-        observer.observe(svgRef.current);
-        return () => observer.disconnect();
-      }
-    }, 100);
-
-    return () => clearTimeout(timeout);
-  }, []);
+  const lenis = useLenis();
 
   return (
     <div className="w-full h-[calc(100svh-75px-75px)] mt-[75px] relative flex flex-col md:px-[74px] overflow-hidden">
@@ -51,10 +28,10 @@ const Header = () => {
         </p>
 
         <div className="w-auto h-auto flex lg:gap-10 md:gap-2 gap-1.5 relative lg:top-[20px]">
-          <Link href={'mailto:info@codeumgames.com'} target="_blank" className="bg-white 2xl:w-[180px] md:w-[150px] w-[80px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary flex justify-center items-center font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[-19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
+          <Link href={'mailto:contact@codeumgames.com'} target="_blank" className="bg-white 2xl:w-[180px] md:w-[150px] w-[80px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary flex justify-center items-center font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[-19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
             Say Hi!
           </Link>
-          <button className="bg-white 2xl:w-[180px] md:w-[150px] w-[90px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
+          <button onClick={() => lenis?.scrollTo("#projects")} className="bg-white 2xl:w-[180px] md:w-[150px] w-[90px] 2xl:h-[90px] md:h-[75px] h-[50px] 2xl:rounded-[30px] md:rounded-[25px] rounded-[20px] font-secondary font-semibold 2xl:text-2xl md:text-xl text-sm cursor-pointer relative lg:top-[19px] hover:scale-110 hover:rotate-12 transition-transform duration-300">
             Projects
           </button>
         </div>

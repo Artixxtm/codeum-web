@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const StretchedText = ({ className, basedVB, fill, words, wordsClassNames }) => {
+const StretchedText = ({ className, basedVB, fill, words, wordsClassNames, stroke = "none", strokeWidth }) => {
   const svgRef = useRef(null);
   const textRef = useRef(null);
   const [viewBox, setViewBox] = useState(basedVB);
@@ -33,6 +33,8 @@ const StretchedText = ({ className, basedVB, fill, words, wordsClassNames }) => 
       viewBox={viewBox}
       className={className}
       fill={fill}
+      stroke={stroke}
+      strokeWidth={strokeWidth}
       preserveAspectRatio="none"
     >
       <text

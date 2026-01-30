@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { GrMail } from "react-icons/gr";
+import { useLenis } from "lenis/react";
 
 const Nav = () => {
+  const lenis = useLenis();
+
   return (
     <>
       <nav
@@ -18,12 +21,12 @@ const Nav = () => {
         </div>
         <div className="w-auto h-full flex items-center gap-8">
           <div className="gap-5 items-center uppercase font-secondary font-semibold text-sm lg:flex hidden">
-            <Link href="#" className="opacity-70">
+            <span onClick={() => lenis?.scrollTo("#projects")} className="opacity-70 cursor-pointer">
               Projects
-            </Link>
-            <Link href="#" className="opacity-70">
+            </span>
+            <span onClick={() => lenis?.scrollTo("#about")} className="opacity-70 cursor-pointer">
               About
-            </Link>
+            </span>
             <Link href="#" className="opacity-70">
               Contact
             </Link>
@@ -34,7 +37,7 @@ const Nav = () => {
               <div className="w-full h-[3px] bg-black" />
               <div className="w-full h-[3px] bg-black" />
             </button>
-            <Link href="mailto:info@codeumgames.com" target="_blank" className="md:flex hidden text-4xl"><GrMail /></Link>
+            <Link href="mailto:contact@codeumgames.com" target="_blank" className="lg:flex hidden text-4xl"><GrMail /></Link>
           </div>
         </div>
       </nav>
