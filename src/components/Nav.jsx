@@ -14,7 +14,7 @@ const Nav = () => {
         className="w-full h-[75px] border-b-[2px] border-b-black/10 backdrop-blur-lg flex justify-between items-center fixed inset-0 z-[10]"
       >
         <div className="flex items-center justify-center w-[74px] h-full border-r-[2px] border-r-black/10 p-3.5">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 618 533">
+          <svg xmlns="http://www.w3.org/2000/svg" width={45} viewBox="0 0 618 533">
             <polygon points="382 0 542 0 618 138 461 401 305.83 401 461 134 382 0" />
             <polygon points="150 131 311 134 156 400 230 533 77 532 0 398 150 131" />
           </svg>
