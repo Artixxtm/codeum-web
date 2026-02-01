@@ -55,6 +55,7 @@ const Header = () => {
             height={0}
             sizes="100vw"
             draggable={false}
+            priority
             className="w-full h-auto object-contain tilt"
           />
         </div>

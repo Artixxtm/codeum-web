@@ -1,23 +1,24 @@
 "use client";
 
 import StretchedText from "@/components/StretchedText";
-import React from "react";
-import { getYear } from "date-fns";
+import React, { useCallback } from "react";
 import Link from "next/link";
-import { FaYoutube } from "react-icons/fa";
-import { FaBluesky, FaXTwitter } from "react-icons/fa6";
-import { AiFillInstagram } from "react-icons/ai";
 import { useLenis } from "lenis/react";
 import useResponsive from "@/hooks/useResponsive";
+import { currentYear, NAV_LINKS, SOCIALS } from "@/utils";
 
-const Contact = ({isMenuOpen}) => {
+const Contact = ({ isMenuOpen }) => {
   const { isTablet } = useResponsive();
-  const currentYear = getYear(new Date());
 
   const lenis = useLenis();
 
+  const scrollTo = useCallback((target) => lenis?.scrollTo(target), [lenis]);
+
   return (
-    <section id="contact" className={`w-full h-auto min-h-[55vh] md:rounded-t-[5rem] rounded-t-[3rem] bg-black text-white flex flex-col z-[100] relative shadow-[0px_-20px_40px_0px_rgba(0,_0,_0,_0.2)] transition-opacity duration-300 ${isTablet ? isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto" : ""}`}>
+    <section
+      id="contact"
+      className={`w-full h-auto min-h-[55vh] md:rounded-t-[5rem] rounded-t-[3rem] bg-black text-white flex flex-col z-[100] relative shadow-[0px_-20px_40px_0px_rgba(0,_0,_0,_0.2)] transition-opacity duration-300 ${isTablet ? (isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto") : ""}`}
+    >
       <div className="flex flex-1 xl:flex-row flex-col h-full w-full md:px-[74px] md:py-10 py-8 px-3.5 xl:gap-4 gap-8 lg:justify-between">
         <div className="flex flex-col gap-1 w-auto h-auto">
           <svg
@@ -47,18 +48,15 @@ const Contact = ({isMenuOpen}) => {
           <span className="font-secondary font-medium uppercase md:text-sm text-xs opacity-75">
             Links
           </span>
-          <span onClick={() => lenis?.scrollTo(0)} className="font-secondary font-semibold uppercase text-lg cursor-pointer">
-            Home
-          </span>
-          <span onClick={() => lenis?.scrollTo("#projects")} className="font-secondary font-semibold uppercase text-lg cursor-pointer">
-            Projects
-          </span>
-          <span onClick={() => lenis?.scrollTo("#about")} className="font-secondary font-semibold uppercase text-lg cursor-pointer">
-            About
-          </span>
-          <span onClick={() => lenis?.scrollTo("#contact")} className="font-secondary font-semibold uppercase text-lg cursor-pointer">
-            Contact
-          </span>
+          {NAV_LINKS.map(({ label, target }) => (
+            <span
+              key={label}
+              onClick={() => scrollTo(target)}
+              className="font-secondary font-semibold uppercase text-lg cursor-pointer"
+            >
+              {label}
+            </span>
+          ))}
         </div>
 
         <div className="flex flex-col gap-1 w-auto h-auto">
@@ -78,46 +76,11 @@ const Contact = ({isMenuOpen}) => {
               Socials
             </span>
             <div className="w-auto flex gap-4 mt-1 items-center">
-              <Link
-                href="https://www.instagram.com/codeumgames/"
-                className="group"
-                target="_blank"
-              >
-                <AiFillInstagram
-                  size={24}
-                  className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </Link>
-              <Link
-                href="https://bsky.app/profile/codeumgames.bsky.social"
-                className="group"
-                target="_blank"
-              >
-                <FaBluesky
-                  size={24}
-                  className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </Link>
-              <Link
-                href="https://www.youtube.com/@CODEUM_GAMES"
-                className="group"
-                target="_blank"
-              >
-                <FaYoutube
-                  size={24}
-                  className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </Link>
-              <Link
-                href="https://x.com/CODEUMGAMES"
-                className="group"
-                target="_blank"
-              >
-                <FaXTwitter
-                  size={24}
-                  className="group-hover:scale-110 transition-transform duration-300"
-                />
-              </Link>
+              {SOCIALS.map(({ href, Icon }) => (
+                <Link key={href} href={href} target="_blank" className="group">
+                  <Icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -128,13 +91,6 @@ const Contact = ({isMenuOpen}) => {
         words={["Codeum Games", "™"]}
         wordsClassNames={["font-main uppercase", "font-main text-xs uppercase"]}
       />
-
-      {/* <div className="lg:hidden flex flex-col w-full h-auto relative font-main uppercase text-7xl mt-5">
-        <h1 className="drop-shadow-[0_2px_0px_rgba(255,255,255,1)] text-black">Codeum</h1>
-        <h1 className="inline-flex items-start w-fit ml-auto">
-          Games<span className="text-5xl relative top-1">™</span>
-        </h1>
-      </div> */}
     </section>
   );
 };

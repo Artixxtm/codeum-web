@@ -24,6 +24,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: #000000;
+  color: #0afce9;
+}
+
 @utility font-main {
   font-family: "Mazzard H Black";
 }

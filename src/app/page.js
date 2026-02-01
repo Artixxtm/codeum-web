@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full h-full overflow-hidden relative bg-[#0afce9]">
+      <div className="w-full h-full overflow-hidden relative">
         <Header />
 
         <Sky isMenuOpen={isMenuOpen} />
