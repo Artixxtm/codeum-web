@@ -4,10 +4,13 @@ import gsap from "gsap";
 import Image from "next/image";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import useResponsive from "@/hooks/useResponsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Sky = () => {
+const Sky = ({isMenuOpen}) => {
+  const {isTablet} = useResponsive();
+
   useEffect(() => {
     const skyImage = document.getElementById("skyImage");
     if (!skyImage) return;
@@ -51,7 +54,8 @@ const Sky = () => {
           height={0}
           sizes="100vw"
           id="skyImage"
-          className="w-full rotate-[15deg] h-auto object-cover"
+          priority
+          className={`w-full rotate-[15deg] h-auto object-cover transition-opacity duration-300 ${isTablet ? isMenuOpen ? "opacity-0" : "opacity-100" : ""}`}
         />
       </div>
     </div>

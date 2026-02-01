@@ -8,14 +8,16 @@ import { FaYoutube } from "react-icons/fa";
 import { FaBluesky, FaXTwitter } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { useLenis } from "lenis/react";
+import useResponsive from "@/hooks/useResponsive";
 
-const Contact = () => {
+const Contact = ({isMenuOpen}) => {
+  const { isTablet } = useResponsive();
   const currentYear = getYear(new Date());
 
   const lenis = useLenis();
 
   return (
-    <section id="contact" className="w-full h-auto min-h-[55vh] md:rounded-t-[5rem] rounded-t-[3rem] bg-black text-white flex flex-col relative z-[1000] shadow-[0px_-20px_40px_0px_rgba(0,_0,_0,_0.2)]">
+    <section id="contact" className={`w-full h-auto min-h-[55vh] md:rounded-t-[5rem] rounded-t-[3rem] bg-black text-white flex flex-col z-[100] relative shadow-[0px_-20px_40px_0px_rgba(0,_0,_0,_0.2)] transition-opacity duration-300 ${isTablet ? isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto" : ""}`}>
       <div className="flex flex-1 xl:flex-row flex-col h-full w-full md:px-[74px] md:py-10 py-8 px-3.5 xl:gap-4 gap-8 lg:justify-between">
         <div className="flex flex-col gap-1 w-auto h-auto">
           <svg
@@ -66,7 +68,7 @@ const Contact = () => {
           <Link
             href={"mailto:contact@codeumgames.com"}
             target="_blank"
-            className="font-secondary font-semibold uppercase md:text-xl text-lg underline underline-offset-6"
+            className="font-secondary font-semibold uppercase md:text-xl text-base underline underline-offset-6"
           >
             contact@codeumgames.com
           </Link>

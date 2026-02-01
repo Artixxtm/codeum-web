@@ -1,26 +1,30 @@
 "use client";
 
 import About from "@/sections/About";
-import Contact from "@/sections/Contact";
 import Header from "@/sections/Header";
-import Sky from "@/sections/Sky";
 import dynamic from "next/dynamic";
 
+import { useMenu } from "@/context/MenuContext";
+
+const Sky = dynamic(() => import("@/sections/Sky"), { ssr: false });
 const Projects = dynamic(() => import("@/sections/Projects"), { ssr: false });
+const Contact = dynamic(() => import("@/sections/Contact"), { ssr: false });
 
 export default function Home() {
+  const { isMenuOpen } = useMenu();
+
   return (
     <>
-      <div className="w-full h-full overflow-hidden relative">
+      <div className="w-full h-full overflow-hidden relative bg-[#0afce9]">
         <Header />
 
-        <Sky />
+        <Sky isMenuOpen={isMenuOpen} />
 
         <Projects />
 
         <About />
 
-        <Contact />
+        <Contact isMenuOpen={isMenuOpen} />
       </div>
     </>
   );
