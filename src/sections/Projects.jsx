@@ -3,9 +3,12 @@
 import projects from "@/utils/projects";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from 'swiper/modules';
 import { MdArrowOutward } from "react-icons/md";
 
 import "swiper/css";
+import 'swiper/css/autoplay';
+
 import Link from "next/link";
 import useResponsive from "@/hooks/useResponsive";
 
@@ -24,10 +27,8 @@ const Projects = () => {
           <Swiper
             slidesPerView={"auto"}
             spaceBetween={isMobile ? 14 : 64}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: true,
-            }}
+            autoplay={{ disableOnInteraction: true }}
+            modules={[Autoplay]}
             className="h-fit !pb-5"
           >
             {projects.map((item, index) => (

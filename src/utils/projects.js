@@ -1,6 +1,16 @@
 import { FaUnity, FaSteam } from "react-icons/fa6";
 
 const projects = [
+    {
+    title: "DevFlow",
+    image: "/projects/devflow.png",
+    description:
+      "DevFlow is a powerful productivity and workflow tool. It helps developers stay focused and streamline their development process with tools like a built-in Pomodoro timer.",
+    link: "https://assetstore.unity.com/packages/tools/utilities/devflow-342288",
+    category: "Unity Asset",
+    categoryIcon: <FaUnity />,
+    id: "1",
+  },
   {
     title: "Samurai's Odyssey",
     image: "/projects/samurais.jpg",
@@ -9,7 +19,7 @@ const projects = [
     link: "https://store.steampowered.com/app/3624120/Samurais_Odyssey/",
     category: "Steam",
     categoryIcon: <FaSteam />,
-    id: "1",
+    id: "2",
   },
   {
     title: "AdManager Pro",
@@ -19,7 +29,7 @@ const projects = [
     category: "Unity Asset",
     categoryIcon: <FaUnity />,
     link: "https://assetstore.unity.com/packages/tools/integration/admanager-pro-easy-setup-292715",
-    id: "2",
+    id: "3",
   },
 ];
 
